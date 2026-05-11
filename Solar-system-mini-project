@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Solar System Animation</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: radial-gradient(circle, #000010, black);
+  overflow:hidden;
+}
+
+.container{
+  font-size:10px;
+  width:40em;
+  height:40em;
+  position:relative;
+}
+
+/* SUN */
+.sun{
+  position:absolute;
+  top:15em;
+  left:15em;
+  width:10em;
+  height:10em;
+  background: radial-gradient(circle, yellow, orange);
+  border-radius:50%;
+  box-shadow: 0 0 5em yellow, 0 0 10em orange;
+}
+
+/* ORBITS */
+.earth, .moon{
+  position:absolute;
+  border-style:solid;
+  border-color:white transparent transparent transparent;
+  border-width:0.1em 0.1em 0 0;
+  border-radius:50%;
+}
+
+/* EARTH ORBIT */
+.earth{
+  top:5em;
+  left:5em;
+  width:30em;
+  height:30em;
+  animation: orbit 20s linear infinite;
+}
+
+/* MOON ORBIT */
+.moon{
+  position:absolute;
+  top:0;
+  right:0;
+  width:8em;
+  height:8em;
+  animation: orbit 5s linear infinite;
+}
+
+/* EARTH */
+.earth::before{
+  content:'';
+  position:absolute;
+  top:2.5em;
+  right:2.5em;
+  width:3em;
+  height:3em;
+  background: radial-gradient(circle, aqua, blue);
+  border-radius:50%;
+  box-shadow: 0 0 1em aqua;
+}
+
+/* MOON */
+.moon::before{
+  content:'';
+  position:absolute;
+  top:0.8em;
+  right:0.2em;
+  width:1.2em;
+  height:1.2em;
+  background: silver;
+  border-radius:50%;
+  box-shadow: 0 0 0.5em white;
+}
+
+/* ANIMATION */
+@keyframes orbit{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="sun"></div>
+  
+  <div class="earth">
+    <div class="moon"></div>
+  </div>
+  
+</div>
+
+</body>
+</html>
